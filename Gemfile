@@ -13,6 +13,7 @@ gem "puma", "~> 5.0"
 # Frontend bundling
 gem "sprockets-rails"
 gem "importmap-rails"
+gem "tailwindcss-rails", "~> 2.0"
 
 # Views
 gem "jbuilder"
@@ -22,6 +23,7 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails"
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
@@ -35,5 +37,3 @@ end
 
 group :test do
 end
-
-gem "tailwindcss-rails", "~> 2.0"
