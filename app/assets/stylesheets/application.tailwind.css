@@ -4,6 +4,10 @@
 
 @layer base {
     html {
+        font-family: 'Roboto Light', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
         font-family: 'Montserrat', sans-serif;
     }
 }
@@ -11,5 +15,9 @@
 @layer utilities {
     .word-spacing-widest {
         word-spacing: 0.5em;
+    }
+
+    .max-w-xxs {
+        max-width: 15rem;
     }
 }

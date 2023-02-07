@@ -8,12 +8,9 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-        display: ['Montserrat'],
-        body: ['Montserrat'],
-      },
+    fontFamily: {
+      roboto: ['Roboto', 'sans-serif'],
+      montserrat: ['Montserrat', 'sans-serif'],
     },
   },
   plugins: [
