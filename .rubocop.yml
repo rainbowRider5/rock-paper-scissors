@@ -1,0 +1,15 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+inherit_gem:
+  rubocop-shopify: rubocop.yml
+
+AllCops:
+  Exclude:
+    - 'config/**/*.rb'
+    - 'bin/**/*'
+
+Layout/EndOfLine:
+  Enabled: true
+  EnforcedStyle: lf
