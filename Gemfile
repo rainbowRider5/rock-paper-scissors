@@ -21,6 +21,8 @@ gem "jbuilder"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem "httpparty"
+
 group :development, :test do
   gem "debug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails"
