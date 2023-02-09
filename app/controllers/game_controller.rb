@@ -2,9 +2,7 @@
 
 class GameController < ApplicationController
   def play
-    outcome = PlayWithCurbAction.execute(game_params[:bet])
-
-    render(json: { outcome: outcome }, status: :ok)
+    @outcome = PlayWithCurbAction.execute(game_params[:bet])
   end
 
   private
