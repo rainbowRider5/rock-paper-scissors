@@ -14,6 +14,7 @@ gem "puma", "~> 5.0"
 gem "sprockets-rails"
 gem "importmap-rails"
 gem "tailwindcss-rails", "~> 2.0"
+gem "turbo-rails"
 
 # Views
 gem "jbuilder"
@@ -40,3 +41,6 @@ end
 
 group :test do
 end
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"
