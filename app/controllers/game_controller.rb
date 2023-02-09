@@ -2,7 +2,9 @@
 
 class GameController < ApplicationController
   def play
-    @outcome = PlayWithCurbAction.execute(game_params[:bet])
+    @outcome, @winning_bet, @winner = PlayWithCurbAction.execute(game_params[:bet]).values_at(
+      :outcome, :winning_bet, :winner
+    )
   end
 
   private

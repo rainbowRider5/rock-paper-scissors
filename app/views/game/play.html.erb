@@ -1,3 +1,22 @@
+<%
+  outcome_word = { 'WIN' => 'WON', 'LOSS' => 'LOST', 'DRAW' => 'TIED' }[@outcome]
+  outcome_sentence = @outcome == 'DRAW' ? 'You tied!' : "#{@winner} with #{@winning_bet.capitalize} wins"
+%>
+
 <%= turbo_frame_tag "modal" do %>
-  YOU <%= @outcome %>
+  <div class="fixed top-0 left-0 h w-full h-full outline-none overflow-x-hidden overflow-y-auto show bg-white/70 flex items-center justify-center">
+    <div class="rounded p-8 bg-white shadow-xl flex flex-col" style="width: 450px; height: 500px;">
+      <div class="flex items-center justify-end">
+        <%= link_to root_path do %>
+          <%= image_tag "close.svg", alt: 'close', class: 'w-5 h-5 cursor-pointer' %>
+        <% end %>
+      </div>
+      <div class="p-6 flex flex-col items-center">
+        <h2 class="text-center text-purple-900 font-bold text-2xl">YOU <%= outcome_word %>!</h2>
+        <p class="text-center text-gray-500 font-light my-5"><%= outcome_sentence %></p>
+        <%= image_tag  "#{@winning_bet.downcase}.svg", alt: @winning_bet.downcase, class: "w-16 h-32 my-12" %>
+        <%= link_to "Ok", root_path, class: "w-full bg-purple-900 text-white h-16 w-full rounded flex justify-center items-center text-2xl" %>
+      </div>
+    </div>
+  </div>
 <% end %>

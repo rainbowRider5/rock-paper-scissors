@@ -8,15 +8,15 @@
 </h3>
 <%= form_with url: play_path, method: :post, data: { turbo_frame: "modal" }, class: "flex items-center justify-center w-full gap-3.5" do |f| %>
   <%= f.button name: "bet", value: "ROCK", class: "min-w-max max-w-xxs h-72 flex flex-1 flex-col justify-center items-center gap-6 hover:bg-gray-200 cursor-pointer" do %>
-    <%= image_tag "Rock.svg", class: "w-16 h-32" %>
+    <%= image_tag "rock.svg", alt: "Rock", class: "w-16 h-32" %>
     <%= content_tag :h5, "Rock", class: "text-lg text-purple-900 font-bold" %>
   <% end %>
   <%= f.button name: "bet", value: "PAPER", class: "min-w-max max-w-xxs h-72 flex flex-1 flex-col justify-center items-center gap-6 hover:bg-gray-200 cursor-pointer" do %>
-    <%= image_tag "Paper.svg", class: "w-16 h-32" %>
-    <%= content_tag :h5, "Rock", class: "text-lg text-purple-900 font-bold" %>
+    <%= image_tag "paper.svg", alt: "Paper", class: "w-16 h-32" %>
+    <%= content_tag :h5, "Paper", class: "text-lg text-purple-900 font-bold" %>
   <% end %>
   <%= f.button name: "bet", value: "SCISSORS", class: "min-w-max max-w-xxs h-72 flex flex-1 flex-col justify-center items-center gap-6 hover:bg-gray-200 cursor-pointer" do %>
-    <%= image_tag "Scissors.svg", class: "w-16 h-32" %>
+    <%= image_tag "scissors.svg", alt: "Scissors", class: "w-16 h-32" %>
     <%= content_tag :h5, "Scissors", class: "text-lg text-purple-900 font-bold" %>
   <% end %>
 <% end %>
