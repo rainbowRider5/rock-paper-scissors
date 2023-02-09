@@ -14,3 +14,7 @@ AllCops:
 Layout/EndOfLine:
   Enabled: true
   EnforcedStyle: lf
+
+Style/MethodCallWithArgsParentheses:
+  Exclude:
+    - 'spec/**/*.rb'

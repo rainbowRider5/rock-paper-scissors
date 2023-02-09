@@ -12,13 +12,13 @@ RSpec.describe(GameController, type: :request) do
       it "responds with proper error message" do
         request
 
-        expect(response.body).to(include("Invalid input for the bet parameter"))
+        expect(response.body).to include("Invalid input for the bet parameter")
       end
 
       it "responds with proper status" do
         request
 
-        expect(response).to(have_http_status(:bad_request))
+        expect(response).to have_http_status(:bad_request)
       end
     end
 
@@ -28,7 +28,7 @@ RSpec.describe(GameController, type: :request) do
       it "responds with an valid outcome" do
         request
 
-        expect(["WIN", "LOSS", "DRAW"]).to(include(parsed_response_body["outcome"]))
+        expect(GameLogic::Throw::OUTCOMES.values).to include(parsed_response_body["outcome"])
       end
     end
   end
