@@ -4,8 +4,8 @@ require "rails_helper"
 
 module GameLogic
   RSpec.describe(Throw) do
-    describe "#random" do
-      subject(:method_call) { described_class.random }
+    describe "#new_random" do
+      subject(:method_call) { described_class.new_random }
 
       it("returns a Throw instance") { is_expected.to(be_an_instance_of(described_class)) }
       it("returns an instance with a valid bet") { expect(described_class::BETS.values).to(include(method_call.bet)) }

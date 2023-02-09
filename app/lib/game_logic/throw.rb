@@ -8,7 +8,7 @@ module GameLogic
     attr_reader :bet
 
     class << self
-      def random
+      def new_random
         new(BETS.values.sample)
       end
     end
