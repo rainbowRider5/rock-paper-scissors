@@ -1,0 +1,9 @@
+<%
+  image_path = "#{bet.downcase}.svg"
+  text = bet.capitalize
+%>
+
+<div class="flex justify-center items-center flex-col gap-6">
+  <%= image_tag image_path, alt: text, class: "w-16 h-32" %>
+  <%= content_tag(:h5, text, class: "text-lg text-purple-900 font-bold") unless defined?(no_caption) %>
+</div>

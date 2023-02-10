@@ -1,6 +1,6 @@
 <%
   outcome_word = { 'WIN' => 'WON', 'LOSS' => 'LOST', 'DRAW' => 'TIED' }[@verdict]
-  outcome_sentence = @verdict == 'DRAW' ? 'You tied!' : "#{@winner_name} with #{@winning_bet.capitalize} wins"
+  outcome_sentence = @verdict == 'DRAW' ? 'Both players selected the same bet' : "#{@winner_name} with #{@winning_bet.capitalize} wins"
 %>
 
 <%= turbo_frame_tag "modal" do %>
@@ -13,9 +13,9 @@
       </div>
       <div class="p-6 flex flex-col items-center">
         <h2 class="text-center text-purple-900 font-bold text-2xl">YOU <%= outcome_word %>!</h2>
-        <p class="text-center text-gray-500 font-light my-5"><%= outcome_sentence %></p>
-        <%= image_tag  "#{@winning_bet.downcase}.svg", alt: @winning_bet.downcase, class: "w-16 h-32 my-12" %>
-        <%= link_to "Ok", root_path, class: "w-full bg-purple-900 text-white h-16 w-full rounded flex justify-center items-center text-2xl" %>
+        <p class="text-center text-gray-500 font-light mt-4 mb-8"><%= outcome_sentence %></p>
+        <%= render partial: "partials/bet_image", locals: { bet: @winning_bet } %>
+        <%= link_to "Ok", root_path, class: "w-full bg-purple-900 text-white h-16 mt-6 w-full rounded cursor-pointer flex justify-center items-center text-2xl" %>
       </div>
     </div>
   </div>
