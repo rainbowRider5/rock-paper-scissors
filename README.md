@@ -54,5 +54,5 @@ Once the server is running feel free to visit the app home page under `localhost
 ## Todos
 - Add "Waiting for the Curb" modal view
 - Extract modals to a layout
-- Use (ViewComponent)[https://viewcomponent.org/], for logic-heavy views
+- Use [ViewComponent](https://viewcomponent.org/), for logic-heavy views
 - Setup view tests with `capybara-matchers` for the `ViewComponents`
