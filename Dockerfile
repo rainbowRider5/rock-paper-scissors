@@ -20,4 +20,4 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # Run server with foreman for development (on port 3000)
-CMD "bin/dev -b 0.0.0.0"
+CMD ["bin/dev"]
