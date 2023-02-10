@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameLogic
   class Player
     attr_accessor :name, :bet

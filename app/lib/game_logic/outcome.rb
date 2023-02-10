@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameLogic
   class Outcome
     VERDICTS = { WIN: "WIN", LOSS: "LOSS", DRAW: "DRAW" }.freeze
