@@ -1,6 +1,6 @@
 <%
-  outcome_word = { 'WIN' => 'WON', 'LOSS' => 'LOST', 'DRAW' => 'TIED' }[@outcome]
-  outcome_sentence = @outcome == 'DRAW' ? 'You tied!' : "#{@winner} with #{@winning_bet.capitalize} wins"
+  outcome_word = { 'WIN' => 'WON', 'LOSS' => 'LOST', 'DRAW' => 'TIED' }[@verdict]
+  outcome_sentence = @verdict == 'DRAW' ? 'You tied!' : "#{@winner_name} with #{@winning_bet.capitalize} wins"
 %>
 
 <%= turbo_frame_tag "modal" do %>

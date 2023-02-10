@@ -1,8 +1,9 @@
 module GameLogic
   class Player
-    attr_accessor :bet
+    attr_accessor :name, :bet
 
-    def initialize(bet = nil)
+    def initialize(name, bet = nil)
+      @name = name
       @bet = bet
     end
 
