@@ -8,22 +8,25 @@ RSpec.describe(PlayWithCurbAction) do
 
     let(:client_bet) { "ROCK" }
 
-    context "when ExternalSerivceError is raised" do
+    context "when ExternalServiceError is raised" do
       let(:curb_client_mock) { instance_double(CurbApiClient) }
+      let(:curb_player) { instance_double(GameLogic::Player, name: "Curb", set_random_bet: "ROCK", bet: "ROCK") }
 
       before do
         allow(CurbApiClient).to receive(:new).and_return(curb_client_mock)
         allow(curb_client_mock).to receive(:throw!).and_raise(ExternalServices::ExternalServiceInternalError)
-        allow(GameLogic::Throw).to receive(:new_random).and_call_original
+        allow(GameLogic::Player).to receive(:new).and_wrap_original do |original, *args|
+          args.first == "Curb" ? curb_player : original.call(*args)
+        end
       end
 
-      it "calls GameLogic::Throw.random to generate throw locally" do
+      it "calls GameLogic::Player.set_random_bet to" do
         method_call
 
-        expect(GameLogic::Throw).to have_received(:new_random)
+        expect(curb_player).to have_received(:set_random_bet)
       end
 
-      it("returns a valid outcome") { expect(GameLogic::Throw::OUTCOMES.values).to include(method_call) }
+      it("returns a valid outcome") { expect(method_call).to be_an_instance_of(GameLogic::Outcome) }
     end
   end
 end

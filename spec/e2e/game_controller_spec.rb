@@ -28,7 +28,7 @@ RSpec.describe(GameController, type: :request) do
       it "responds with an valid outcome" do
         request
 
-        expect(GameLogic::Outcome::VERDICTS.values).to include(parsed_response_body["outcome"])
+        expect(GameLogic::Outcome::VERDICTS.values).to render_template(:play)
       end
     end
   end

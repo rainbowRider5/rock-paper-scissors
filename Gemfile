@@ -22,11 +22,11 @@ gem "jbuilder"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Request sending
 gem "httpparty"
 
 group :development, :test do
   gem "debug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "rspec-rails"
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
@@ -40,6 +40,8 @@ group :development do
 end
 
 group :test do
+  gem "rails-controller-testing"
+  gem "rspec-rails"
 end
 
 # Use Redis for Action Cable

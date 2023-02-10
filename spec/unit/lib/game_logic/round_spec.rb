@@ -5,7 +5,7 @@ require "rails_helper"
 module GameLogic
   RSpec.describe Round do
     subject(:class_instance) { described_class.new(*players) }
-    let(:players) { [Player.new, Player.new] }
+    let(:players) { [Player.new("John"), Player.new("Maria")] }
 
     describe "#play!" do
       subject(:method_call) { class_instance.play! }
