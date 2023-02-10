@@ -10,7 +10,7 @@ class GameController < ApplicationController
   private
 
   def validate_params
-    raise InvalidParamError, :bet if GameLogic::Throw::BETS.values.exclude?(game_params[:bet])
+    raise InvalidParamError, :bet if GameLogic::BETS.values.exclude?(game_params[:bet])
   end
 
   def game_params
