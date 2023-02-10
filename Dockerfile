@@ -1,17 +1,23 @@
-# Minimal ruby setup
-FROM ruby:3.2.0-bullseye AS rock-paper-scissors
+# ONLY DEVELOPMENT ENVIRONMENT
+FROM ruby:3.2.0-slim-bullseye AS rock-paper-scissors
 
-RUN apt-get update
+# Install update and libraries
+RUN apt-get update -qq && apt-get install -y build-essential && gem update --system 3.4.6
 
-RUN gem update --system 3.4.5
+# Set working directory
+WORKDIR /rock-paper-scissors
 
-# Minimal rails project setup
+# Install gems
+COPY Gemfile* ./
+RUN bundle install
+
+# Copy over the script that will be executed every time the container starts.
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+
+# Expose 3000 port
 EXPOSE 3000
 
-WORKDIR /opt/rock-paper-scissors
-
-COPY Gemfile Gemfile
-
-RUN gem install rails bundler && bundle install
-
-CMD ["/bin/dev"]
+# Run server with foreman for development (on port 3000)
+CMD "bin/dev -b 0.0.0.0"
